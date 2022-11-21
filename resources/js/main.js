@@ -35,15 +35,21 @@ tweets.forEach((tweet) => {
 const links = document.querySelectorAll('a');
 
 links.forEach((link) => {
-	link.removeAttribute('rel');
-	link.removeAttribute('target');
-	link.removeAttribute('href');
+	if (link.dataset.replacement) {
+		link.href = link.dataset.replacement;
+		link.innerText = link.dataset.replacement;
+	} else {
+		link.removeAttribute('rel');
+		link.removeAttribute('target');
+		link.removeAttribute('href');
+		link.classList.add('not-allowed');
 
-	if (link.innerText.includes('https://t.co')) {
-		link.remove();
-	}
+		if (link.innerText.includes('https://t.co')) {
+			link.remove();
+		}
 
-	if (link.innerText == 'View on Twitter') {
-		link.remove();
+		if (link.innerText == 'View on Twitter') {
+			link.remove();
+		}
 	}
 });
