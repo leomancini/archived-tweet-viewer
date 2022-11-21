@@ -13,9 +13,21 @@ html, body {
 	background: #FAFAFA;
 	
 	a {
-		.not-allowed {
+		&.not-allowed {
 			cursor: not-allowed;
 		}
+	}
+
+	button {
+		&:hover {
+			cursor: not-allowed;
+		}
+	}
+
+	video {
+		margin-top: 10px;
+		border-radius: 14px;
+		overflow: hidden;
 	}
 
 	.render-when-visible {
