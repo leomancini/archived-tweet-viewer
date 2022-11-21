@@ -1,3 +1,4 @@
+const container = document.querySelector('.render-when-visible');
 const tweets = document.querySelectorAll('.r-1re7ezh');
 
 tweets.forEach((tweet) => {
@@ -7,12 +8,24 @@ tweets.forEach((tweet) => {
 	tweet.remove();
 
 	if (window.tweetId) {
-		if (tweetId === window.tweetId) {
-			tweetTimestamp = tweetContainer.querySelector('.Tweet-timestamp').innerText;
-			console.log(tweetTimestamp);
-			document.title = `Tweet on ${tweetTimestamp}`;
+		if (window.tweetId.includes(',')) {
+			container.classList.add('multipleTweets');
+
+			tweetIdsToShow = window.tweetId.split(',');
+			if (tweetIdsToShow.includes(tweetId)) {
+				let tweetTimestamp = tweetContainer.querySelector('.Tweet-timestamp').innerText;
+				document.title = `Tweets on ${tweetTimestamp}`;
+			} else {
+				tweetContainer.remove();
+			}
 		} else {
-			tweetContainer.remove();
+			container.classList.add('singleTweet');
+			if (window.tweetId === tweetId) {
+				let tweetTimestamp = tweetContainer.querySelector('.Tweet-timestamp').innerText;
+				document.title = `Tweet on ${tweetTimestamp}`;
+			} else {
+				tweetContainer.remove();
+			}
 		}
 	} else {
 		document.querySelector('body').remove();
