@@ -1,6 +1,8 @@
 const container = document.querySelector('.render-when-visible');
 const tweets = document.querySelectorAll('.r-1re7ezh');
 
+let tweetTimestamps = [];
+
 tweets.forEach((tweet) => {
 	let tweetId = tweet.innerText.replace('ID', '');
 	let tweetContainer = tweet.closest('.r-uvzvve');
@@ -14,7 +16,14 @@ tweets.forEach((tweet) => {
 			tweetIdsToShow = window.tweetId.split(',');
 			if (tweetIdsToShow.includes(tweetId)) {
 				let tweetTimestamp = tweetContainer.querySelector('.Tweet-timestamp').innerText;
-				document.title = `Tweets on ${tweetTimestamp}`;
+				tweetTimestamps.push(tweetTimestamp);
+				let uniqueTweetTimestamps = [...new Set(tweetTimestamps)];
+
+				if (uniqueTweetTimestamps.length === 1) {
+					document.title = `Tweets on ${tweetTimestamp}`;
+				} else {
+					document.title = `Tweets on ${uniqueTweetTimestamps.join(' & ')}`;
+				}
 			} else {
 				tweetContainer.remove();
 			}
