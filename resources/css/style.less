@@ -3,6 +3,7 @@
 
 * {
 	-webkit-font-smoothing: antialiased;
+	font-family: TwitterChirp, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif!important;
 }
 
 ::selection {
@@ -11,7 +12,7 @@
 
 html, body {
 	background: #FAFAFA;
-	
+
 	a {
 		&.not-allowed {
 			cursor: not-allowed;
@@ -66,6 +67,16 @@ html, body {
 			@media @mobile {
 				margin: 12px;
 				padding: 20px;
+			}
+
+			.Tweet-header {
+				margin-bottom: 8px;
+			}
+
+			.Tweet-header,
+			.Tweet-text {
+				font-size: 15px;
+				line-height: 20px;
 			}
 		}
 	}
