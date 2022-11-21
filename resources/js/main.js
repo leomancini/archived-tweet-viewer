@@ -47,6 +47,8 @@ links.forEach((link) => {
 	if (link.dataset.replacement) {
 		link.href = link.dataset.replacement;
 		link.innerText = link.dataset.replacement;
+	} else if (link.classList.contains('Tweet-photoGalleryCell')) {
+		link.href = link.querySelector('img').src;
 	} else {
 		link.removeAttribute('rel');
 		link.removeAttribute('target');
