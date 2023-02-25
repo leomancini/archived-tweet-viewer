@@ -1,3 +1,4 @@
+const page = document.querySelector('#page');
 const container = document.querySelector('.render-when-visible');
 const tweets = document.querySelectorAll('.r-1re7ezh');
 
@@ -64,3 +65,7 @@ links.forEach((link) => {
 		}
 	}
 });
+
+setTimeout(() => {
+	page.classList.add('loaded');
+}, 800)

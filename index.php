@@ -9,7 +9,9 @@
         <script type='text/javascript'>window.tweetId = '<?php echo $_GET['tweetId']; ?>';</script>
     </head>
     <body>
-        <?php include('data/tweets.php'); ?>
+        <div id='page'>
+            <?php include('data/tweets.php'); ?>
+        </div>
         <script src='resources/js/main.js'></script>
     </body>
 </html>
