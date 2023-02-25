@@ -3860,6 +3860,8 @@ html[dir='rtl'] .FormValidationMessage:not([dir='ltr'])::before,
   overflow: hidden;
   border: 1px solid rgba(0, 0, 0, 0.1);
   border-radius: 14px;
+  -webkit-transform: translateZ(0);
+  -webkit-mask-image: -webkit-radial-gradient(circle, white 100%, black 100%);
 }
 .Tweet-photoContainer.Tweet-photoContainer--portrait {
   height: 0;

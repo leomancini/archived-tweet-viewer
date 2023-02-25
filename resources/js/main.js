@@ -68,4 +68,4 @@ links.forEach((link) => {
 
 setTimeout(() => {
 	page.classList.add('loaded');
-}, 800)
+}, 1000)
